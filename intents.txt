@@ -1,0 +1,39 @@
+//client
+
+
+        private TextView name,surname;
+        name = findViewById(R.id.text_name);
+        surname = findViewById(R.id.text_Surname);
+        Intent i = getIntent();
+        String username = i.getStringExtra("keyname");
+        String userSurname = i.getStringExtra("keysurname");
+        String op = "";
+        char ch;
+        for (int x=0; x<username.length(); x++)
+        {
+            ch= username.charAt(x); //extracts each character
+            op= ch+op; //adds each character in front of the existing string
+        }
+        name.setText(op);
+        surname.setText(userSurname);
+        
+        
+        //Server
+        private EditText name,Surname;
+        name = findViewById(R.id.name);
+        Surname = findViewById(R.id.surname);
+        message = findViewById(R.id.message);
+        add = findViewById(R.id.ADD);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = name.getText().toString();
+                String userSurname = Surname.getText().toString();
+                Intent intent = new Intent(MainActivity.this,Activity2.class);
+                intent.putExtra("keyname",username);
+                intent.putExtra("keysurname",userSurname);
+                startActivity(intent);
+//
+            }
+        });
