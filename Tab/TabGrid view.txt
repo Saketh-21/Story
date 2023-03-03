@@ -1,0 +1,10 @@
+    TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);  
+    tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));  
+    tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));  
+    tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));  
+    
+    https://abhiandroid.com/materialdesign/tablayout-example-android-studio.html
+    Search tablayout
+    
+    //GRID
+    https://github.com/WithSam/Grid-Layout/blob/master/app/src/main/res/layout/activity_main.xml
