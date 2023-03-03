@@ -1,0 +1,36 @@
+https://www.javatpoint.com/android-radiobutton
+https://www.geeksforgeeks.org/how-to-use-checkbox-in-android/
+https://www.geeksforgeeks.org/how-to-check-if-checkbox-is-checked-in-android/
+//to check checked
+public void itemClicked(View v) {
+  //code to check if this checkbox is checked!
+  CheckBox checkBox = (CheckBox)v;
+  if(checkBox.isChecked()){
+
+  }
+}
+
+//loop checkbox check
+private int getExcludedTagNamespaces(View view) {
+    int newValue = 0;
+    for (int i = 0; i < EXCLUDED_TAG_GROUP_RES_ID.length; i++) {
+      CheckBox cb = (CheckBox) view.findViewById(EXCLUDED_TAG_GROUP_RES_ID[i]);
+      if (cb.isChecked()) {
+        newValue |= EXCLUDED_TAG_GROUP_ID[i];
+      }
+    }
+    return newValue;
+  }
+}
+
+//Array pass by intent
+List<Question> mQuestionList = new ArrayList<Question>;
+  mQuestionsList = QuestionBank.getQuestions();
+  mQuestionList.add(new Question(ops1, choices1));
+
+  Intent intent = new Intent(SourceActivity.this, TargetActivity.class);
+  intent.putExtra("QuestionListExtra", ArrayList<Question>mQuestionList);
+
+
+List<Question> questions = new ArrayList<Question>();
+  questions = (ArrayList<Question>)getIntent().getSerializableExtra("QuestionListExtra");
