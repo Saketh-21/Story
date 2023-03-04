@@ -35,10 +35,11 @@ public class MainActivity extends AppCompatActivity {
 }
 
 //Activity2.java
-  public class Activity2 extends AppCompatActivity {
-    private TextView text;
+  private TextView text;
     private Button button;
     String res="";
+    String [] s;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +47,12 @@ public class MainActivity extends AppCompatActivity {
         button = (Button)findViewById(R.id.Button);
         Intent i = getIntent();
         res = i.getStringExtra("Msg");
-        text = findViewById(R.id.output);
-        text.setText(res);
+         s = res.split(" ");
+//        text = findViewById(R.id.output);
+//        text.setText(res);
+         listView = findViewById(R.id.list1);
+        ArrayAdapter<String> a = new ArrayAdapter<String>(Activity2.this, android.R.layout.simple_dropdown_item_1line,s);
+        listView.setAdapter(a);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,4 +63,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+}
 
