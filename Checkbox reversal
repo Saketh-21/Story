@@ -1,0 +1,61 @@
+//MainActivity.java
+public class MainActivity extends AppCompatActivity {
+    private CheckBox Pizza,Burger,Pasta;
+    private Button button;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Pizza = (CheckBox) findViewById(R.id.Pizza);
+        Burger = (CheckBox) findViewById(R.id.Burger);
+        Pasta = (CheckBox) findViewById(R.id.Pasta);
+        button = (Button) findViewById(R.id.Button);
+        StringBuilder res= new StringBuilder();
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Pizza.isChecked()){
+                    String x = "Azzip ";
+                    res.append(x);
+                }
+                if(Burger.isChecked()){
+                    String x = "regrub ";
+                    res.append(x);
+                }
+                if(Pasta.isChecked()){
+                    String x = "atsap ";
+                    res.append(x);
+                }
+                Intent i3 = new Intent(MainActivity.this,Activity2.class);
+                i3.putExtra("Msg",res.toString());
+                startActivity(i3);
+            }
+        });
+    }
+}
+
+//Activity2.java
+  public class Activity2 extends AppCompatActivity {
+    private TextView text;
+    private Button button;
+    String res="";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_2);
+        button = (Button)findViewById(R.id.Button);
+        Intent i = getIntent();
+        res = i.getStringExtra("Msg");
+        text = findViewById(R.id.output);
+        text.setText(res);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                res="";
+                Intent i2 = new Intent(Activity2.this,MainActivity.class);
+                startActivity(i2);
+            }
+        });
+    }
+
+
